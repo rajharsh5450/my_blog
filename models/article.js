@@ -16,6 +16,9 @@ const articleSchema = new mongoose.Schema({
     unique: true,
   },
   sanitizedHTML: { type: String, required: true },
+  creater: {
+    type: String,
+  },
 });
 
 articleSchema.pre("validate", function (next) {

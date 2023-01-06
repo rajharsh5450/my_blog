@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 
 const articleRouter = require("./routes/articles");
+const authRouter = require("./routes/auth");
 const Article = require("./models/article");
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride("_method"));
 
+//Home Page route
 app.get("/", (req, res) => {
   Article.find()
     .sort({ createdAt: "desc" })
@@ -21,9 +23,15 @@ app.get("/", (req, res) => {
     })
     .catch((e) => res.redirect("/404"));
 });
+
+//Error route
 app.get("/404", (req, res) => res.render("error"));
 
+//Articles route
 app.use("/articles", articleRouter);
+
+//Authentication routes
+app.use("/auth", authRouter);
 
 mongoose.set({ strictQuery: false });
 mongoose

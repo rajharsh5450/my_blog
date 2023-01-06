@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <title>Shadow's Blog</title>
+  </head>
+  <script>
+    function checkPasswords() {
+      const pswd = document.getElementById("password").value;
+      const cpswd = document.getElementById("cpassword").value;
+      if (pswd === cpswd) {
+        document.getElementById("message").innerHTML = "";
+        document.getElementById("sub").disabled = false;
+      } else {
+        document.getElementById("message").innerHTML =
+          "Both passwords must be same.";
+      }
+    }
+  </script>
+  <body>
+    <div class="container">
+      <h1 class="mb-4 mt-2">Register Yourself</h1>
+      <form action="/auth/signup" method="post">
+        <%- include("../components/user_form_fields") %>
+      </form>
+    </div>
+  </body>
+</html>

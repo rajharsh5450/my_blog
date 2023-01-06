@@ -14,9 +14,9 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="mb-4 mt-2">Edit Article</h1>
-      <form action="/articles/<%= article.slug %>?_method=PUT" method="post">
-        <%- include("../components/article_form_fields") %>
+      <h1 class="mb-4 mt-2">Get Signed In</h1>
+      <form action="/auth/signin" method="post">
+        <%- include("../components/user_form_fields") %>
       </form>
     </div>
   </body>

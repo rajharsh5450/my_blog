@@ -1,0 +1,56 @@
+<div class="form-group">
+  <label for="email"> Email </label>
+  <input
+    type="email"
+    value="<%= user.email %>"
+    name="email"
+    id="email"
+    class="form-control"
+    required
+  />
+</div>
+
+<div class="form-group">
+  <label for="password"> Password </label>
+  <input
+    type="password"
+    value="<%= user.password %>"
+    name="password"
+    id="password"
+    class="form-control"
+    required
+  />
+</div>
+
+<% if(signup===true){%>
+
+<div class="form-group">
+  <label for="cpassword"> Confirm Password </label>
+  <input
+    type="password"
+    name="cpassword"
+    id="cpassword"
+    class="form-control"
+    onkeyup="checkPasswords()"
+    required
+  />
+</div>
+
+<span class="text-danger" id="message"></span>
+
+<%}%>
+
+<div>
+  <% if(signup===true){%>
+
+  <button class="btn btn-primary" id="sub" type="submit" disabled>
+    Register
+  </button>
+
+  <% } else{%>
+
+  <button class="btn btn-primary" type="submit">Login</button>
+
+  <%}%>
+  <a href="/" class="btn btn-secondary"> Cancel </a>
+</div>
