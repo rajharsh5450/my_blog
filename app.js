@@ -19,8 +19,9 @@ app.get("/", (req, res) => {
     .then((articles) => {
       res.render("articles/index", { articles: articles });
     })
-    .catch((e) => res.redirect("/articles/404"));
+    .catch((e) => res.redirect("/404"));
 });
+app.get("/404", (req, res) => res.render("error"));
 
 app.use("/articles", articleRouter);
 
