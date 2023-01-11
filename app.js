@@ -36,7 +36,7 @@ app.use("/auth", authRouter);
 mongoose.set({ strictQuery: false });
 mongoose
   .connect(
-    "mongodb+srv://shadow:1234567890@cluster0.vfkemtz.mongodb.net/blog?retryWrites=true&w=majority"
+    "mongodb+srv://<username>:<password>@cluster0.vfkemtz.mongodb.net/<database>?retryWrites=true&w=majority"
   )
   .then(() => console.log("connected to blog"))
   .catch((e) => console.log(e.message));
